@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Inspect portfolio holdings and trace fund exposure with lookout."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>lookout</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="#holdings"
+          ><svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M3 25 16 5 29 25M9 25l7-11 7 11M3 25h26" /></svg
+          >lookout</a
+        >
+        <div class="group">Portfolio</div>
+        <nav aria-label="Portfolio">
+          <a href="#holdings" data-page="holdings">Holdings <span>01</span></a
+          ><a href="#exposure" data-page="exposure">Exposure <span>02</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a
+            href="https://snowball-projects.github.io/"
+            target="_blank"
+            rel="noreferrer"
+            >snowball ↗</a
+          >
+        </div>
+      </aside>
+      <div class="workspace">
+        <header>
+          <div class="breadcrumb">
+            Portfolio <span>/</span> <strong id="crumb">Holdings</strong>
+          </div>
+          <div class="actions">
+            <span class="local-dot">On this device</span
+            ><button id="demo">Load example</button
+            ><button id="export">Export original</button
+            ><button id="import" class="primary">
+              Import file <span>↗</span></button
+            ><input
+              id="file"
+              type="file"
+              accept="application/json,.json"
+              hidden
+            />
+          </div>
+        </header>
+        <main id="main" tabindex="-1">
+          <div id="notice" role="status" aria-live="polite"></div>
+          <div id="content"></div>
+        </main>
+        <footer>
+          <span id="dataset"></span
+          ><button id="info" class="quiet">ⓘ &nbsp; About this workspace</button
+          ><button id="clear" class="quiet">Clear workspace</button>
+        </footer>
+      </div>
+    </div>
+    <dialog id="about">
+      <form method="dialog">
+        <button class="close" aria-label="Close">×</button>
+      </form>
+      <h2>Your data stays here.</h2>
+      <p>
+        Imported files are read on this device. This app does not upload or
+        persist their contents. Reloading clears the workspace.
+      </p>
+      <p>
+        The built-in example is synthetic. Values describe the supplied
+        snapshot, not live prices. Missing prices stay unknown.
+      </p>
+      <p>
+        Exposure reports are calculated offline by Moneyprinter. The viewer
+        checks their structure, totals and association with the portfolio; it
+        does not rerun the fund engine or authenticate a report's author.
+      </p>
+      <p>
+        This first working slice covers Holdings and Exposure. Allocation,
+        Markets, Derivatives and Strategies remain in development.
+      </p>
+      <details>
+        <summary>Prepare an exposure report</summary>
+        <p>
+          Use the local report command with your workspace JSON and an
+          independent Moneyprinter checkout. It writes a new file for import; it
+          never sends portfolio data to this site.
+        </p>
+        <pre
+          style="overflow: auto"
+        ><code>python3 scripts/create_report.py holdings.json \
+  --engine-root ../moneyprinter &gt; report.json</code></pre>
+        <p>The source README explains setup and the supported input format.</p>
+      </details>
+      <p>
+        <a href="./example.json" download>Download example workspace</a> ·
+        <a
+          href="https://github.com/snowball-projects/lookout"
+          target="_blank"
+          rel="noreferrer"
+          >Source ↗</a
+        >
+      </p>
+      <p class="muted">MIT software · source and data terms remain separate.</p>
+    </dialog>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

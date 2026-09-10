@@ -2,3 +2,5 @@ __pycache__/
 .venv/
 .env
 artifacts/
+dist/
+node_modules/

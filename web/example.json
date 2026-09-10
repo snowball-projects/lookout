@@ -1,0 +1,435 @@
+{
+  "schema_version": "lookout.file/1",
+  "workspace": {
+    "schema_version": "lookout.workspace/1",
+    "valuation_as_of": "2026-08-27",
+    "currency": "USD",
+    "accounts": [
+      {
+        "id": "account:brokerage",
+        "label": "Example brokerage"
+      },
+      {
+        "id": "account:wallet",
+        "label": "Example wallet"
+      }
+    ],
+    "instruments": [
+      {
+        "id": "ticker:FUND_ALPHA",
+        "label": "Example fund",
+        "kind": "fund"
+      },
+      {
+        "id": "ticker:ACME",
+        "label": "Example security",
+        "kind": "security"
+      },
+      {
+        "id": "cash:USD",
+        "label": "US dollar",
+        "kind": "cash"
+      }
+    ],
+    "holdings": [
+      {
+        "account_id": "account:brokerage",
+        "instrument_id": "ticker:FUND_ALPHA",
+        "quantity": "10",
+        "as_of": "2026-08-27T16:00:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      },
+      {
+        "account_id": "account:brokerage",
+        "instrument_id": "ticker:ACME",
+        "quantity": "1",
+        "as_of": "2026-08-27T16:00:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      },
+      {
+        "account_id": "account:wallet",
+        "instrument_id": "ticker:ACME",
+        "quantity": "1",
+        "as_of": "2026-08-27T16:00:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      },
+      {
+        "account_id": "account:wallet",
+        "instrument_id": "cash:USD",
+        "quantity": "100",
+        "as_of": "2026-08-27T16:00:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "instrument_id": "ticker:FUND_ALPHA",
+        "currency": "USD",
+        "price": "100",
+        "as_of": "2026-08-27T16:30:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      },
+      {
+        "instrument_id": "ticker:ACME",
+        "currency": "USD",
+        "price": "100",
+        "as_of": "2026-08-27T16:30:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      },
+      {
+        "instrument_id": "cash:USD",
+        "currency": "USD",
+        "price": "1",
+        "as_of": "2026-08-27T16:30:00Z",
+        "source": {
+          "name": "Synthetic example",
+          "reference": "synthetic://lookout/workspace-v1",
+          "retrieved_at": "2026-08-27T17:00:00Z"
+        }
+      }
+    ],
+    "snapshots": [
+      {
+        "fund_id": "ticker:FUND_ALPHA",
+        "as_of": "2026-01-01",
+        "source": {
+          "name": "Synthetic fixture",
+          "reference": "synthetic://fund-alpha/2026-01-01",
+          "retrieved_at": "2026-08-27T12:00:00+00:00"
+        },
+        "holdings": [
+          {
+            "instrument_id": "ticker:ACME",
+            "kind": "security",
+            "weight": "0.50"
+          },
+          {
+            "instrument_id": "ticker:FUND_BETA",
+            "kind": "fund",
+            "weight": "0.40"
+          }
+        ]
+      },
+      {
+        "fund_id": "ticker:FUND_BETA",
+        "as_of": "2026-08-20",
+        "source": {
+          "name": "Synthetic fixture",
+          "reference": "synthetic://fund-beta/2026-08-20",
+          "retrieved_at": "2026-08-27T12:00:00+00:00"
+        },
+        "holdings": [
+          {
+            "instrument_id": "ticker:ACME",
+            "kind": "security",
+            "weight": "0.25"
+          },
+          {
+            "instrument_id": "ticker:BETA",
+            "kind": "security",
+            "weight": "0.50"
+          }
+        ]
+      }
+    ]
+  },
+  "exposure": {
+    "input_sha256": "5c1df08f875a0b96d602aab1b6dd96b97663a7211d9d28cd9ed6e5b13e02a821",
+    "engine_commit": "b01123e954793026ffda2f896926303056d3b6b1",
+    "report": {
+      "schema_version": "1",
+      "engine_version": "0.1.2",
+      "portfolio": {
+        "currency": "USD",
+        "valuation_as_of": "2026-08-27",
+        "total_value": "1300"
+      },
+      "options": {
+        "max_depth": 8,
+        "stale_after_days": 90
+      },
+      "coverage": {
+        "resolved_value": "1100",
+        "unresolved_value": "200",
+        "resolved_percentage": "84.61538461538461538461538461538461538462",
+        "unresolved_percentage": "15.38461538461538461538461538461538461538"
+      },
+      "aggregates": [
+        {
+          "subject_id": "cash:USD",
+          "kind": "cash",
+          "status": "resolved",
+          "reason": null,
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "subject_id": "ticker:ACME",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "value": "800",
+          "portfolio_percentage": "61.53846153846153846153846153846153846154"
+        },
+        {
+          "subject_id": "ticker:BETA",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "value": "200",
+          "portfolio_percentage": "15.38461538461538461538461538461538461538"
+        },
+        {
+          "subject_id": "ticker:FUND_ALPHA",
+          "kind": "unknown",
+          "status": "unresolved",
+          "reason": "residual_weight",
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "subject_id": "ticker:FUND_BETA",
+          "kind": "unknown",
+          "status": "unresolved",
+          "reason": "residual_weight",
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        }
+      ],
+      "paths": [
+        {
+          "root_position_id": "cash:USD",
+          "exposure_id": "cash:USD",
+          "subject_id": "cash:USD",
+          "kind": "cash",
+          "status": "resolved",
+          "reason": null,
+          "path": [
+            "cash:USD"
+          ],
+          "expansions": [],
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "root_position_id": "ticker:ACME",
+          "exposure_id": "ticker:ACME",
+          "subject_id": "ticker:ACME",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "path": [
+            "ticker:ACME"
+          ],
+          "expansions": [],
+          "value": "200",
+          "portfolio_percentage": "15.38461538461538461538461538461538461538"
+        },
+        {
+          "root_position_id": "ticker:FUND_ALPHA",
+          "exposure_id": null,
+          "subject_id": "ticker:FUND_ALPHA",
+          "kind": "unknown",
+          "status": "unresolved",
+          "reason": "residual_weight",
+          "path": [
+            "ticker:FUND_ALPHA"
+          ],
+          "expansions": [
+            {
+              "fund_id": "ticker:FUND_ALPHA",
+              "snapshot_as_of": "2026-01-01",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-alpha/2026-01-01",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            }
+          ],
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "root_position_id": "ticker:FUND_ALPHA",
+          "exposure_id": "ticker:ACME",
+          "subject_id": "ticker:ACME",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "path": [
+            "ticker:FUND_ALPHA",
+            "ticker:ACME"
+          ],
+          "expansions": [
+            {
+              "fund_id": "ticker:FUND_ALPHA",
+              "snapshot_as_of": "2026-01-01",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-alpha/2026-01-01",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            }
+          ],
+          "value": "500",
+          "portfolio_percentage": "38.46153846153846153846153846153846153846"
+        },
+        {
+          "root_position_id": "ticker:FUND_ALPHA",
+          "exposure_id": null,
+          "subject_id": "ticker:FUND_BETA",
+          "kind": "unknown",
+          "status": "unresolved",
+          "reason": "residual_weight",
+          "path": [
+            "ticker:FUND_ALPHA",
+            "ticker:FUND_BETA"
+          ],
+          "expansions": [
+            {
+              "fund_id": "ticker:FUND_ALPHA",
+              "snapshot_as_of": "2026-01-01",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-alpha/2026-01-01",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            },
+            {
+              "fund_id": "ticker:FUND_BETA",
+              "snapshot_as_of": "2026-08-20",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-beta/2026-08-20",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            }
+          ],
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "root_position_id": "ticker:FUND_ALPHA",
+          "exposure_id": "ticker:ACME",
+          "subject_id": "ticker:ACME",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "path": [
+            "ticker:FUND_ALPHA",
+            "ticker:FUND_BETA",
+            "ticker:ACME"
+          ],
+          "expansions": [
+            {
+              "fund_id": "ticker:FUND_ALPHA",
+              "snapshot_as_of": "2026-01-01",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-alpha/2026-01-01",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            },
+            {
+              "fund_id": "ticker:FUND_BETA",
+              "snapshot_as_of": "2026-08-20",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-beta/2026-08-20",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            }
+          ],
+          "value": "100",
+          "portfolio_percentage": "7.692307692307692307692307692307692307692"
+        },
+        {
+          "root_position_id": "ticker:FUND_ALPHA",
+          "exposure_id": "ticker:BETA",
+          "subject_id": "ticker:BETA",
+          "kind": "security",
+          "status": "resolved",
+          "reason": null,
+          "path": [
+            "ticker:FUND_ALPHA",
+            "ticker:FUND_BETA",
+            "ticker:BETA"
+          ],
+          "expansions": [
+            {
+              "fund_id": "ticker:FUND_ALPHA",
+              "snapshot_as_of": "2026-01-01",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-alpha/2026-01-01",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            },
+            {
+              "fund_id": "ticker:FUND_BETA",
+              "snapshot_as_of": "2026-08-20",
+              "source_name": "Synthetic fixture",
+              "source_reference": "synthetic://fund-beta/2026-08-20",
+              "retrieved_at": "2026-08-27T12:00:00+00:00"
+            }
+          ],
+          "value": "200",
+          "portfolio_percentage": "15.38461538461538461538461538461538461538"
+        }
+      ],
+      "provenance": {
+        "used_snapshots": [
+          {
+            "fund_id": "ticker:FUND_ALPHA",
+            "snapshot_as_of": "2026-01-01",
+            "source_name": "Synthetic fixture",
+            "source_reference": "synthetic://fund-alpha/2026-01-01",
+            "retrieved_at": "2026-08-27T12:00:00+00:00",
+            "age_days": 238,
+            "stale": true,
+            "reported_weight": "0.9",
+            "residual_weight": "0.1"
+          },
+          {
+            "fund_id": "ticker:FUND_BETA",
+            "snapshot_as_of": "2026-08-20",
+            "source_name": "Synthetic fixture",
+            "source_reference": "synthetic://fund-beta/2026-08-20",
+            "retrieved_at": "2026-08-27T12:00:00+00:00",
+            "age_days": 7,
+            "stale": false,
+            "reported_weight": "0.75",
+            "residual_weight": "0.25"
+          }
+        ],
+        "unused_snapshot_fund_ids": []
+      },
+      "warnings": [
+        {
+          "code": "unresolved_exposure",
+          "message": "Some portfolio value could not be resolved to known leaf instruments.",
+          "reasons": [
+            "residual_weight"
+          ]
+        },
+        {
+          "code": "stale_snapshots",
+          "message": "One or more used snapshots exceed stale_after_days.",
+          "fund_ids": [
+            "ticker:FUND_ALPHA"
+          ]
+        }
+      ]
+    }
+  }
+}

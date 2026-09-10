@@ -7,8 +7,8 @@ specs/holdings.md, docs/PRODUCT.md and docs/REPOSITORIES.md before changing
 contracts, product behavior or migration.
 Read snowball's current principles before public/data/architecture decisions.
 
-This checkout currently contains an offline data foundation, not a completed or
-deployed website. Do not imply that example values are real quotes, account data,
+This checkout provides a static Holdings/Exposure interface plus an offline data
+foundation. It is not the completed six-page product or a public launch. Do not imply that example values are real quotes, account data,
 validated forecasts or investment recommendations. Use only synthetic fixtures.
 Never add credentials, private holdings, telemetry or live execution by default.
 The initial product uses user-controlled imports, synthetic examples and
@@ -28,8 +28,8 @@ from runtime-dependent Monte Carlo observations. Specs marked proposed are not
 claims that browser adapters exist.
 
 Run `python3 -m unittest discover -s tests -v`; check the CLI on the synthetic
-fixture. Run the independent engine when changing its boundary. No additional
-runtime dependencies are needed for the current slice. Keep source reports and
+fixture. Run the independent engine when changing its boundary. Run `npm test` for browser/Python parity and report checks and `npm run build`
+for the static distribution. No frontend runtime dependencies are needed. Keep source reports and
 future UI labels explicit about partial data and skipped checks.
 
 Repository transfers, public deployment and retirement must follow the owner

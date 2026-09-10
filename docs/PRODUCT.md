@@ -1,8 +1,9 @@
 # Approved product decisions
 
 The owner approved these decisions on September 9–10, 2026. They describe the
-intended product; the current repository contains its offline data foundation,
-not a deployed dashboard.
+intended product. The current development interface implements Holdings and
+Exposure on top of the offline foundation; the six-page public dashboard is not
+yet complete.
 
 ## Website and catalog
 

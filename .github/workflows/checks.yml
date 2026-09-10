@@ -1,4 +1,4 @@
-name: Foundation checks
+name: Lookout checks
 on:
   push:
     branches: [main]
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ['3.11', '3.14']
+        python: ["3.11", "3.14"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
@@ -19,3 +19,9 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python scripts/prepare_workspace.py examples/holdings.json > /dev/null
       - run: python -m json.tool examples/derivatives-reference.json > /dev/null
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "24"
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
