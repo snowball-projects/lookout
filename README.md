@@ -1,5 +1,7 @@
 # lookout
 
+[Open lookout](https://snowball-projects.github.io/lookout/).
+
 lookout is snowball’s finance workspace. Its six-page MVP groups Holdings,
 Exposure and Allocation under Portfolio, and Markets, Derivatives and Strategies
 under Research. Holdings and Exposure support local file imports and a synthetic
@@ -80,20 +82,20 @@ loaded workspace. Planned pages are accessible without loading portfolio data.
 
 ## Hosting and operation
 
-The public deployment target is a Render Static Site defined in `render.yaml`:
-branch `main`, build `npm ci && npm test && npm run build`, publish `dist/`.
-No server process, credentials, database or paid compute instance is required.
-Deployment is not complete until the live destination has been verified.
+The public dashboard is deployed to GitHub Pages by `.github/workflows/pages.yml`
+from branch `main`, after tests and a static build to `dist/`. No server process,
+credentials, database or paid compute instance is required. The former Render
+blueprint is removed because the owner chose static Pages hosting for this launch.
 Only browser assets and the MIT license enter `dist/`; source documentation,
 local files and historical data are not deployment assets. GitHub remains the
 canonical source. `.openai/hosting.json` retains the earlier private Sites preview
 identity; it is not the public production deployment configuration.
 
-Render serves the static files and processes hosting request metadata under its
+GitHub Pages serves the static files and processes hosting request metadata under its
 own policies. Imported file contents remain in browser memory and are not sent
 to the host. Static hosting is subject to the provider's bandwidth/build limits;
-no zero-cost-at-any-usage or zero-host-logging claim is made. See Render's
-[static site documentation](https://render.com/docs/static-sites).
+no zero-cost-at-any-usage or zero-host-logging claim is made. See GitHub's
+[Pages documentation](https://docs.github.com/en/pages).
 
 To revive or move the app, check out a release, run the checks above, and serve
 `dist/` on any HTTPS static host. Hash routes require no server rewrites. The
