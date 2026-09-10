@@ -98,6 +98,18 @@ class WorkspaceTests(unittest.TestCase):
         self.bundle['holdings'][0]['account_id']=[]
         with self.assertRaises(ContractError):prepare_workspace(self.bundle)
 
+    def test_cli_rejects_duplicate_json_fields(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'ambiguous.json'
+            path.write_text('{"currency":"USD","currency":"EUR"}')
+            command = [sys.executable, str(Path(__file__).resolve().parents[1] / 'scripts/prepare_workspace.py'), str(path)]
+            result = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('Duplicate JSON field', result.stderr)
+            self.assertEqual(result.stdout, '')
+
     def test_empty_portfolio_has_no_engine_input(self):
         self.bundle['holdings']=[]
         result=prepare_workspace(self.bundle)
