@@ -4,7 +4,8 @@ lookout is snowball’s finance workspace. Its six-page MVP groups Holdings,
 Exposure and Allocation under Portfolio, and Markets, Derivatives and Strategies
 under Research. Holdings and Exposure support local file imports and a synthetic
 example; the remaining four pages are explicitly planned, without calculations.
-Engine transfers are complete; prototype retirement is tracked separately.
+Engine transfers and the ten approved predecessor GitHub deletions are complete;
+source-labelled ideas and reproducible exercises are preserved separately.
 
 The workspace validates a source-attributed holdings/quote bundle,
 keeps missing valuations explicit, and converts fully valued holdings into the

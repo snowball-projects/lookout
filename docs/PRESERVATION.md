@@ -1,11 +1,13 @@
 # Preservation status before repository retirement
 
-Assessment: September 10, 2026. No repository is deleted or approved for deletion
-by this document. The owner requires final repository-specific confirmation.
+Completed September 10, 2026. After reviewing the preserved notes, the owner
+approved deletion of the ten personal GitHub repositories below. Each deletion
+succeeded and was verified absent through GitHub. All local checkouts and the
+four canonical snowball repositories remain.
 
 The review covered current functional source and documentation, reachable history
-topology and material removed features. The latest remote check found no change
-to any of the ten candidate heads below, one branch each, no advertised tags and
+topology and material removed features. The final pre-deletion remote check found no change
+to any of the ten recorded heads below, one branch each, no advertised tags and
 no open PRs or issues. It did not execute every historical revision, inspect the
 Windows machine or recover unreachable/deleted refs.
 
@@ -28,7 +30,7 @@ claim that the corresponding lookout page is implemented.
 | `adelevski/QuantConnect` `f4f460d` | All nine parameterized strategy/event exercises, offline NLP→timestamped replay, synthetic lifecycle/availability/expiry checks and teaching provenance limits. | Intentionally deferred catalogue. No profitability claim, corpus copying or hosted LEAN/NLP runtime. |
 | `adelevski/ML-for-Asset-Managers` `8cc37ec` | Seeded bounded correlation-eigenvalue experiment, Marchenko–Pastur support/density and singular-domain checks; book attribution. | Allocation diagnostic deferred; denoising/prediction were not implemented. Reimplement ideas rather than copy book code. |
 | `adelevski/TradingEngineServer` `1592804` | One configured shared worker, bounded awaited jobs and cooperative cancellation; no busy loop or duplicated service instance. | General engineering exercise retained. There was no trading algorithm/server to migrate. |
-| Personal Moneyprinter predecessor | One-level exposure/provider normalization lessons and input/output schema design are recorded privately. Source/layout changes have been reconciled. | Recursive exposure uses the independent snowball engine. Private retention choices and the final deletion decision remain in the private migration record. |
+| `adelevski/moneyprinter` `5c4cc94` | One-level exposure/provider normalization lessons and input/output schema design are recorded privately. Source/layout changes have been reconciled. | Recursive exposure uses the independent snowball engine. Schema/workflow retention was approved; the historical GitHub repository was deleted. Local files remain. |
 
 ## Local work and deletion gate
 
@@ -41,14 +43,10 @@ history into lookout or the independent history-free snowball engine.
 The final source-labelled draft and reproduction checkpoints were committed,
 pushed and verified in the independent private writing repository on September
 10, 2026. No original source history or historical account values are claimed
-to be archived. The owner is reviewing those notes before deciding on deletion.
-
-Before deleting any exact repository:
-
-1. Keep that verified preservation record outside the retiring repositories.
-2. Refresh refs and relevant local state once more; review any intervening work.
-3. Obtain the owner's final repository-specific decision. Distinguish GitHub
-   deletion from separately deleting local checkouts.
+to be archived. The owner reviewed and accepted these notes before approving the
+exact ten deletions. Remote identities, heads and absence of open work were
+rechecked immediately before deletion. The private migration record retains the
+verification results.
 
 Preserving a deferred exercise does not require rebuilding the abandoned app.
 Likewise, adding a planned page does not establish a completed implementation.

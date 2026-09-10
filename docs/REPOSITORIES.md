@@ -4,7 +4,9 @@ Owner-approved product name and destination: **lookout**, `snowball-projects/loo
 One finance website with Portfolio (Holdings, Exposure, Allocation) and Research
 (Markets, Derivatives, Strategies). The owner approved the repository destinations,
 single lookout catalog entry and import/local/offline operating model. Both engine
-transfers are complete. Final prototype deletions remain pending.
+transfers are complete. The ten personal predecessor repositories were deleted with owner approval
+on September 10, 2026, after preservation and final verification. Local checkouts
+remain.
 
 ## Four maintained repositories
 
@@ -64,25 +66,26 @@ keeping the website together does not mean those modules go untested or get mixe
 into view code. Shared input contracts connect pages without conflating real
 holdings, hypothetical allocations and historical research.
 
-See [preservation status](PRESERVATION.md) for what the review saved and what is
-still required before retirement. The owner confirmed MIT for original lookout
+See [preservation record](PRESERVATION.md) for the saved ideas and completed
+retirement checks. The owner confirmed MIT for original lookout
 software and snowball-owned code; third-party code/data retain their terms.
 
-## Repository retirement candidates
+## Completed repository retirement
 
-These are deletions to confirm after the applicable preservation gates pass.
-Nothing in this document deletes or archives a repository automatically.
+The owner reviewed the preserved notes and explicitly approved the exact ten
+GitHub deletions. Each succeeded and was verified absent on September 10, 2026.
+No local checkout was deleted.
 
 The nine prototypes and their source-specific preservation results are listed in
 [PRESERVATION.md](PRESERVATION.md). Their useful ideas are retained as working
 behavior where adopted and self-contained reproducible exercises where deferred;
 retirement does not require implementing all four planned pages first.
 
-The personal historical Moneyprinter is a tenth candidate. Source/layout
+The personal historical Moneyprinter was the tenth deleted repository. Source/layout
 reconciliation is complete. The owner chose schema/workflow retention without
 keeping outdated snapshot values or creating a new recovery archive. The private
-migration record holds the details. Final confirmation must name exact GitHub
-repositories and distinguish any separately proposed local file deletion.
+migration record holds the details. The authorization covered GitHub deletion
+only; any local file removal requires a separate decision.
 
 `OptionPricingEngine` and `marketbro` were **transferred, not copied or deleted**.
 Their repository IDs, advertised refs, release/asset IDs and PR identities matched
