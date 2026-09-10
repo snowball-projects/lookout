@@ -73,18 +73,16 @@ software and snowball-owned code; third-party code/data retain their terms.
 These are deletions to confirm after the applicable preservation gates pass.
 Nothing in this document deletes or archives a repository automatically.
 
-| Personal repository                             | What must be preserved/verified first                                                                                          | Proposed final disposition                                                                                       |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `Crypto-Portfolio-Tracker`                      | Source-labelled notes; account/common-quote behavior and regression fixtures; any selected adapter transferred with provenance | Delete once successor adapter/import behavior is verified                                                        |
-| `tinytrack`                                     | Native-ETH adapter lesson and working normalized equivalent; retain per-account behavior from the broken refactor              | Delete once the useful wallet/account behavior is preserved                                                      |
-| `PortfolioOptimizer`                            | Objective/frontier and owned-universe behavior; historical risk/options exercises; corrected solver/unit tests in successor    | Delete after required behavior is reproduced; keep deferred exercises in notes                                   |
-| `finance_dashboards`                            | Chosen chart/screener interactions, indicator definitions and tests; tutorial/data provenance                                  | Delete after extraction; do not migrate credential history or the order endpoint                                 |
-| `TradingDashboard`                              | Price/expiry/volatility-smile interaction and provider-contract tests                                                          | Delete after it is represented in lookout or a reproducible retained exercise                                    |
-| `OptionPricer`                                  | QuantLib reference fixture with explicit dates/calendar/day count and provenance                                               | Delete once independent reference reproduction is retained                                                       |
-| `QuantConnect`                                  | All nine corrected exercise descriptions; selected replay fixtures; platform/teaching provenance                               | Delete after extraction, without requiring implementation of every strategy or copying the tweet corpus          |
-| `ML-for-Asset-Managers`                         | Book citation and reproducible seeded covariance-noise exercise specification                                                  | Delete after extraction; reuse only material with appropriate rights                                             |
-| `TradingEngineServer`                           | Background-worker lifecycle lesson; no useful trading implementation exists                                                    | Delete after owner confirms the source-labelled note is sufficient                                               |
-| `moneyprinter` (personal historical repository) | Reconcile dirty Mac source/data work; decide separately what personal records to retain privately; successor exposure verified | **Defer.** Keep private until that reconciliation/retention decision; then delete or privately archive as chosen |
+The nine prototypes and their source-specific preservation results are listed in
+[PRESERVATION.md](PRESERVATION.md). Their useful ideas are retained as working
+behavior where adopted and self-contained reproducible exercises where deferred;
+retirement does not require implementing all four planned pages first.
+
+The personal historical Moneyprinter is a tenth candidate. Source/layout
+reconciliation is complete. The owner chose schema/workflow retention without
+keeping outdated snapshot values or creating a new recovery archive. The private
+migration record holds the details. Final confirmation must name exact GitHub
+repositories and distinguish any separately proposed local file deletion.
 
 `OptionPricingEngine` and `marketbro` were **transferred, not copied or deleted**.
 Their repository IDs, advertised refs, release/asset IDs and PR identities matched
