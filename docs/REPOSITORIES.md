@@ -42,6 +42,30 @@ release process. Lookout pins the versions/contracts it integrates and tests the
 boundary with synthetic fixtures. One UI deployment need not release all engines.
 The public pages link to canonical engine docs rather than duplicate them.
 
+## How the six pages map to the repositories
+
+Every page and its interface live in lookout. Engine ownership below describes
+reusable computation, not a separate website or service per page.
+
+| Page | Computation and retained ideas | Current implementation boundary |
+| --- | --- | --- |
+| Holdings | Lookout owns account imports, instrument identity, shared dated quotes, valuation and account totals. Crypto-Portfolio-Tracker and tinytrack supply adapter and wallet ideas. | Synthetic account-aware valuation is tested. Exchange/RPC adapters and the UI are not built. Moneyprinter is not a holdings collector or ledger. |
+| Exposure | Moneyprinter owns recursive fund look-through, overlap, unresolved coverage and contribution paths; lookout supplies valued positions and displays results. | The synthetic adapter is verified against Moneyprinter. Real fund-data acquisition and the page remain to be built. |
+| Allocation | A tested internal lookout module will own weights, objectives/frontier, constraints, historical risk and covariance diagnostics. PortfolioOptimizer, convex_optimization and ML-for-Asset-Managers supply exercises. Moneyprinter can later describe a proposed allocation's exposure. | No allocation solver is implemented in lookout or supplied by the three retained engines. Reimplement and validate this capability; separate it into a library only if independent use warrants that. |
+| Markets | Lookout owns dated instrument charts, history/volume, watchlists and explicit screening conditions. finance_dashboards and TradingDashboard supply interactions. Suitable marketbro bar/report contracts may be reused. | No market page, validated indicator module or shared public feed exists yet. Do not force chart rendering or generic screeners into marketbro. |
+| Derivatives | OptionPricingEngine owns its native European/Asian models. Lookout owns inputs, visualizations and the integration boundary. OptionPricer supplies an independent QuantLib reference; historical PortfolioOptimizer exercises add future sensitivities/trees. | Native reference examples and a proposed contract exist; no browser pricing adapter, smile UI, Greeks or implied-volatility solver is claimed. Add reusable model algorithms to the engine when implemented. |
+| Strategies | Marketbro owns historical research and explainable result generation; lookout presents portable reports and comparisons. QuantConnect supplies the nine exercise ideas. | Two input fixes are in a tested PR. Calendar-aligned holdouts, batch-state accounting and complete replay provenance still need work. No hosted broker, live execution or validated strategy catalogue is delivered. |
+
+The three engines cover specific existing strengths, not every calculation the
+website needs. Holdings, Allocation and Markets therefore require new modules;
+keeping the website together does not mean those modules go untested or get mixed
+into view code. Shared input contracts connect pages without conflating real
+holdings, hypothetical allocations and historical research.
+
+See [preservation status](PRESERVATION.md) for what the review saved and what is
+still required before retirement. The owner confirmed MIT for original lookout
+software and snowball-owned code; third-party code/data retain their terms.
+
 ## Repository retirement candidates
 
 These are deletions to confirm after the applicable preservation gates pass.

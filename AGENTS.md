@@ -30,5 +30,7 @@ future UI labels explicit about partial data and skipped checks.
 Repository transfers, public deployment and retirement must follow the owner
 review and gates in docs/REPOSITORIES.md. Do not delete the historical personal
 Moneyprinter repo or local data during routine consolidation. Keep source and
-data licenses distinct; resolve the new product's source license before public
-publication, preserving existing engine licenses meanwhile.
+data licenses distinct. The owner confirmed MIT as the canonical license for
+snowball-owned software; keep LICENSE, metadata and current documentation aligned.
+Preserve third-party licenses and copyright notices. Do not relicense datasets
+or book-derived code merely because they appear in a source repository.

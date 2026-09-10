@@ -34,5 +34,6 @@ The holdings example adapts Moneyprinter's synthetic portfolio fixture from
 `snowball-projects/moneyprinter` at `3ff3ff0` (MIT), adding synthetic accounts and
 quotes. The source repository remains authoritative for exposure behavior.
 Derivatives reference fixtures record their native engine and numerical oracle
-provenance. New lookout source licensing will be resolved before public release;
-existing engine and third-party licenses are unchanged.
+provenance. Lookout's original software uses the [MIT license](LICENSE), the
+owner-approved standard for snowball software. Existing engine copyright notices,
+third-party licenses and data terms remain applicable.
