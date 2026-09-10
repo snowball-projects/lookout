@@ -1,8 +1,10 @@
 # lookout
 
 Implementation groundwork for lookout, snowball’s finance workspace.
-This is not the published website or a production portfolio service. The product name and target `snowball-projects/lookout` are owner-approved;
-engine transfers and prototype retirement remain pending.
+This is not the published website or a production portfolio service. The product
+name, six-page grouping, repository destinations and initial operating model are
+owner-approved. Both engine transfers are complete; prototype retirement remains
+pending.
 
 The first executable slice validates a source-attributed holdings/quote bundle,
 keeps missing valuations explicit, and converts fully valued holdings into the
@@ -19,7 +21,7 @@ The command writes a JSON result to stdout; inputs are never overwritten.
 currency. No missing price is replaced with zero or one. Moneyprinter remains
 responsible for fund snapshot validation and recursive exposure calculations.
 
-See [repository plan](docs/REPOSITORIES.md)
+See [product decisions](docs/PRODUCT.md), [repository plan](docs/REPOSITORIES.md)
 and [holdings contract](specs/holdings.md). This reference implementation is
 stdlib Python to verify the data boundary before choosing a browser adapter.
 It does not commit the frontend to Python, a server, or a new service.

@@ -2,17 +2,18 @@
 
 Owner-approved product name and destination: **lookout**, `snowball-projects/lookout`.
 One finance website with Portfolio (Holdings, Exposure, Allocation) and Research
-(Markets, Derivatives, Strategies). The grouping is approved; the transfers,
-engine renames and final deletions below are proposed, not completed.
+(Markets, Derivatives, Strategies). The owner approved the repository destinations,
+single lookout catalog entry and import/local/offline operating model. Both engine
+transfers are complete. Final prototype deletions remain pending.
 
 ## Four maintained repositories
 
-| Repository | Responsibility | Proposed action |
+| Repository | Responsibility | Status |
 | --- | --- | --- |
 | `snowball-projects/lookout` | Website routes/components, shared input/report contracts, import normalization, UI integration tests, optional local import helpers | New canonical product repository. One version/deployment for the website. Current work is the executable data foundation, not the six finished pages. |
 | `snowball-projects/moneyprinter` | Offline fund look-through engine, trace/coverage/overlap, CLI and exports | Keep name, history and package. No transfer required. Lookout is a consumer, not the engine's replacement. |
-| `snowball-projects/option-pricing-engine` | Reusable C++ models, numerical tests and native CLI | Proposed transfer of `adelevski/OptionPricingEngine`, plus repository-only lowercase rename. Preserve history/tags; don't rewrite C++ names merely to match the URL. |
-| `snowball-projects/marketbro` | Offline historical research, bar/result contracts, deterministic policy stages | Proposed transfer of `adelevski/marketbro` with its name/history intact. Public website integration initially consumes suitable results; personal governance and live-block remain. |
+| `snowball-projects/option-pricing-engine` | Reusable C++ models, numerical tests and native CLI | Transferred and renamed from `adelevski/OptionPricingEngine`. Public visibility, history, tags and releases preserved; existing C++ names retained. |
+| `snowball-projects/marketbro` | Offline historical research, bar/result contracts, deterministic policy stages | Transferred from `adelevski/marketbro`. Private visibility, history, releases and PRs preserved. Website integration initially consumes suitable reports; personal execution remains outside lookout. |
 
 Four is a responsibility boundary, not a permanent quota. Import helpers start in
 lookout rather than become a fifth repository. Split them only if they acquire
@@ -54,7 +55,7 @@ reusable computation, not a separate website or service per page.
 | Allocation | A tested internal lookout module will own weights, objectives/frontier, constraints, historical risk and covariance diagnostics. PortfolioOptimizer, convex_optimization and ML-for-Asset-Managers supply exercises. Moneyprinter can later describe a proposed allocation's exposure. | No allocation solver is implemented in lookout or supplied by the three retained engines. Reimplement and validate this capability; separate it into a library only if independent use warrants that. |
 | Markets | Lookout owns dated instrument charts, history/volume, watchlists and explicit screening conditions. finance_dashboards and TradingDashboard supply interactions. Suitable marketbro bar/report contracts may be reused. | No market page, validated indicator module or shared public feed exists yet. Do not force chart rendering or generic screeners into marketbro. |
 | Derivatives | OptionPricingEngine owns its native European/Asian models. Lookout owns inputs, visualizations and the integration boundary. OptionPricer supplies an independent QuantLib reference; historical PortfolioOptimizer exercises add future sensitivities/trees. | Native reference examples and a proposed contract exist; no browser pricing adapter, smile UI, Greeks or implied-volatility solver is claimed. Add reusable model algorithms to the engine when implemented. |
-| Strategies | Marketbro owns historical research and explainable result generation; lookout presents portable reports and comparisons. QuantConnect supplies the nine exercise ideas. | Two input fixes are in a tested PR. Calendar-aligned holdouts, batch-state accounting and complete replay provenance still need work. No hosted broker, live execution or validated strategy catalogue is delivered. |
+| Strategies | Marketbro owns historical research and explainable result generation; lookout presents portable reports and comparisons. QuantConnect supplies the nine exercise ideas. | Nonfinite-price rejection and signal date-cutoff fixes are merged. Calendar-aligned holdouts, batch-state accounting and complete replay provenance still need work. No hosted broker, live execution or validated strategy catalogue is delivered. |
 
 The three engines cover specific existing strengths, not every calculation the
 website needs. Holdings, Allocation and Markets therefore require new modules;
@@ -84,10 +85,11 @@ Nothing in this document deletes or archives a repository automatically.
 | `TradingEngineServer` | Background-worker lifecycle lesson; no useful trading implementation exists | Delete after owner confirms the source-labelled note is sufficient |
 | `moneyprinter` (personal historical repository) | Reconcile dirty Mac source/data work; decide separately what personal records to retain privately; successor exposure verified | **Defer.** Keep private until that reconciliation/retention decision; then delete or privately archive as chosen |
 
-`OptionPricingEngine` and `marketbro` are **transfer candidates, not deletion
-candidates**. A GitHub transfer/rename preserves the repository and its history;
-do not subsequently delete the transferred engine under the impression it is an
-obsolete copy. Existing personal URLs should be verified after transfer.
+`OptionPricingEngine` and `marketbro` were **transferred, not copied or deleted**.
+Their repository IDs, advertised refs, release/asset IDs and PR identities matched
+before and after transfer; the old API paths resolve to the new repositories.
+Do not subsequently delete a transferred engine as though it were an obsolete
+copy. The Moneyprinter overlap and marketbro input fixes are now merged on main.
 
 The existing `snowball-projects/moneyprinter` stays. Earlier deletions of
 convex_optimization and CppDerivativesDesignPatterns are already documented in the

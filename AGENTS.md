@@ -3,13 +3,18 @@
 lookout is snowball's finance workspace, owned by its founder Nas Delevski.
 Use lowercase `lookout` and `snowball`. Keep the website's six routes together;
 retain independently useful engines as canonical projects. Read README.md,
-specs/holdings.md and docs/REPOSITORIES.md before changing contracts or migration.
+specs/holdings.md, docs/PRODUCT.md and docs/REPOSITORIES.md before changing
+contracts, product behavior or migration.
 Read snowball's current principles before public/data/architecture decisions.
 
 This checkout currently contains an offline data foundation, not a completed or
 deployed website. Do not imply that example values are real quotes, account data,
 validated forecasts or investment recommendations. Use only synthetic fixtures.
 Never add credentials, private holdings, telemetry or live execution by default.
+The initial product uses user-controlled imports, synthetic examples and
+local/offline calculations. Defer automatic account connections and shared live
+feeds. Lookout is the sole finance catalog card approved for snowball's website;
+link independently maintained engines through documentation and relevant views.
 
 Missing prices remain unknown. Preserve account/source/timestamp lineage,
 original inputs, exact decimal values, explicit currency/time/model conventions

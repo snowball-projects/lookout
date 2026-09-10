@@ -3,7 +3,7 @@
   "contract_version": "1.0.0",
   "status": "reference_contract_adapter_not_implemented",
   "provenance": {
-    "repository": "https://github.com/adelevski/OptionPricingEngine",
+    "repository": "https://github.com/snowball-projects/option-pricing-engine",
     "revision": "749bc959c3bca0befdf439339979c040343ede37",
     "release": "v0.1.2",
     "data": "synthetic_parameters_only",

@@ -2,7 +2,7 @@
 
 Status: proposed contract and validated synthetic references; no browser adapter, worker, frontend, engine modification or deployment is implemented by this document.
 
-The canonical implementation remains [OptionPricingEngine v0.1.2](https://github.com/adelevski/OptionPricingEngine/tree/749bc959c3bca0befdf439339979c040343ede37), revision `749bc959c3bca0befdf439339979c040343ede37`. A future finance interface can present its results without absorbing the engine's source or pretending every model is available. The existing engine consumes plain numeric inputs and returns a call/put pair. This contract makes those inputs, conventions, limitations and failures explicit at a JSON boundary.
+The canonical implementation remains [OptionPricingEngine v0.1.2](https://github.com/snowball-projects/option-pricing-engine/tree/749bc959c3bca0befdf439339979c040343ede37), revision `749bc959c3bca0befdf439339979c040343ede37`. A future finance interface can present its results without absorbing the engine's source or pretending every model is available. The existing engine consumes plain numeric inputs and returns a call/put pair. This contract makes those inputs, conventions, limitations and failures explicit at a JSON boundary.
 
 ## Scope
 
@@ -99,7 +99,7 @@ The initial spot at time zero is an observation. The terminal maturity is **not*
   "request_id": "example-analytic",
   "status": "ok",
   "engine": {
-    "repository": "https://github.com/adelevski/OptionPricingEngine",
+    "repository": "https://github.com/snowball-projects/option-pricing-engine",
     "release": "v0.1.2",
     "revision": "749bc959c3bca0befdf439339979c040343ede37",
     "adapter_version": "<actual adapter version>",
