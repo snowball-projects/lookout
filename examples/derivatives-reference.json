@@ -1,0 +1,538 @@
+{
+  "fixture_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "status": "reference_contract_adapter_not_implemented",
+  "provenance": {
+    "repository": "https://github.com/adelevski/OptionPricingEngine",
+    "revision": "749bc959c3bca0befdf439339979c040343ede37",
+    "release": "v0.1.2",
+    "data": "synthetic_parameters_only",
+    "verification": "Native current core compiled and executed with AppleClang 21 on macOS; analytic and deterministic formulas independently checked. Adapter-only rejection cases specify the proposed boundary; they are not claims of an existing adapter test run.",
+    "runtime_randomness": "std::mt19937 with std::normal_distribution; identical seeds are not promised bitwise identical across standard-library implementations."
+  },
+  "recommended_browser_limits": {
+    "default_paths": 10000,
+    "maximum_paths": 100000,
+    "maximum_asian_observations": 2520,
+    "maximum_asian_path_observations": 5000000
+  },
+  "fixtures": [
+    {
+      "id": "european_analytic",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "european_analytic",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "european_vanilla",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0.2,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "not_applicable"
+        },
+        "method": {
+          "name": "closed_form"
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "black_scholes_merton_closed_form",
+        "prices": {
+          "call": 10.450583572185565,
+          "put": 5.573526022256973
+        },
+        "absolute_tolerance": 1e-09
+      },
+      "expected_uncertainty": {
+        "status": "not_applicable",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "deterministic_closed_form"
+      },
+      "expected_monitoring": null
+    },
+    {
+      "id": "european_seeded",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "european_seeded",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "european_vanilla",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0.2,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "not_applicable"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 10000,
+          "seed": 42
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "black_scholes_merton_closed_form",
+        "prices": {
+          "call": 10.450583572185565,
+          "put": 5.573526022256973
+        },
+        "absolute_tolerance": 0.3
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": null,
+      "observed_core_prices": {
+        "call": 10.59509626783022,
+        "put": 5.556628022703909
+      },
+      "stochastic_acceptance_note": "Tolerance is a finite seeded numerical smoke check against a model reference, not a reported confidence interval, universal random-seed guarantee, or bitwise portability promise."
+    },
+    {
+      "id": "european_zero_volatility",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "european_zero_volatility",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "european_vanilla",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "not_applicable"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 42
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "deterministic_discounted_payoff",
+        "prices": {
+          "call": 2.896924880604118,
+          "put": 0.0
+        },
+        "absolute_tolerance": 1e-09
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": null
+    },
+    {
+      "id": "asian_arithmetic_zero_volatility",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_arithmetic_zero_volatility",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_arithmetic_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 17
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "deterministic_legacy_schedule_payoff",
+        "prices": {
+          "call": 1.4354724839505597,
+          "put": 0.0
+        },
+        "absolute_tolerance": 1e-09
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": {
+        "convention": "legacy_252_time_zero_excludes_expiry_v1",
+        "observation_count": 252,
+        "first_observation_years": 0,
+        "last_observation_years": 0.996031746031746,
+        "includes_expiry": false
+      }
+    },
+    {
+      "id": "asian_geometric_zero_volatility",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_geometric_zero_volatility",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_geometric_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 17
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "deterministic_legacy_schedule_payoff",
+        "prices": {
+          "call": 1.431851695454956,
+          "put": 0.0
+        },
+        "absolute_tolerance": 1e-09
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": {
+        "convention": "legacy_252_time_zero_excludes_expiry_v1",
+        "observation_count": 252,
+        "first_observation_years": 0,
+        "last_observation_years": 0.996031746031746,
+        "includes_expiry": false
+      }
+    },
+    {
+      "id": "asian_single_observation",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_single_observation",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_arithmetic_fixed_strike",
+          "currency": "USD",
+          "spot": 110,
+          "strike": 100,
+          "maturity_years": 0.006
+        },
+        "market": {
+          "volatility": 0.2,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.01
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 17
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "deterministic_time_zero_only_payoff",
+        "prices": {
+          "call": 9.997000449955003,
+          "put": 0.0
+        },
+        "absolute_tolerance": 1e-09
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": {
+        "convention": "legacy_252_time_zero_excludes_expiry_v1",
+        "observation_count": 1,
+        "first_observation_years": 0,
+        "last_observation_years": 0.0,
+        "includes_expiry": false
+      }
+    },
+    {
+      "id": "asian_geometric_seeded",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_geometric_seeded",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_geometric_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0.2,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.01
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 10000,
+          "seed": 17
+        }
+      },
+      "expected_status": "ok",
+      "reference": {
+        "kind": "independent_matched_schedule_geometric_asian_closed_form",
+        "prices": {
+          "call": 5.244052006730566,
+          "put": 3.6530553457240993
+        },
+        "absolute_tolerance": 0.3
+      },
+      "expected_uncertainty": {
+        "status": "not_estimated",
+        "standard_error": null,
+        "confidence_interval": null,
+        "reason": "engine_does_not_compute_sampling_uncertainty"
+      },
+      "expected_monitoring": {
+        "convention": "legacy_252_time_zero_excludes_expiry_v1",
+        "observation_count": 252,
+        "first_observation_years": 0,
+        "last_observation_years": 0.996031746031746,
+        "includes_expiry": false
+      },
+      "observed_core_prices": {
+        "call": 5.25903946766595,
+        "put": 3.703471696856908
+      },
+      "stochastic_acceptance_note": "Tolerance is a finite seeded numerical smoke check against a model reference, not a reported confidence interval, universal random-seed guarantee, or bitwise portability promise."
+    }
+  ],
+  "rejection_cases": [
+    {
+      "id": "zero_maturity",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "zero_maturity",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "european_vanilla",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 0
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "not_applicable"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 17
+        }
+      },
+      "expected_status": "error",
+      "expected_error_code": "INVALID_INPUT",
+      "expected_prices": null
+    },
+    {
+      "id": "asian_no_observations",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_no_observations",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_arithmetic_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 0.001
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 1,
+          "seed": 17
+        }
+      },
+      "expected_status": "error",
+      "expected_error_code": "INVALID_MONITORING_GRID",
+      "expected_prices": null
+    },
+    {
+      "id": "asian_closed_form_unavailable",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "asian_closed_form_unavailable",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_geometric_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "closed_form"
+        }
+      },
+      "expected_status": "error",
+      "expected_error_code": "UNSUPPORTED_METHOD",
+      "expected_prices": null
+    },
+    {
+      "id": "excessive_asian_work",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "excessive_asian_work",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "asian_arithmetic_fixed_strike",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0,
+          "continuous_risk_free_rate": 0.05,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "legacy_252_time_zero_excludes_expiry_v1"
+        },
+        "method": {
+          "name": "monte_carlo",
+          "paths": 20000,
+          "seed": 17
+        }
+      },
+      "expected_status": "error",
+      "expected_error_code": "WORK_BUDGET_EXCEEDED",
+      "expected_prices": null
+    },
+    {
+      "id": "numeric_range_error",
+      "request": {
+        "contract_version": "1.0.0",
+        "request_id": "numeric_range_error",
+        "model": "black_scholes_merton_constant_v1",
+        "instrument": {
+          "kind": "european_vanilla",
+          "currency": "USD",
+          "spot": 100,
+          "strike": 100,
+          "maturity_years": 1
+        },
+        "market": {
+          "volatility": 0.2,
+          "continuous_risk_free_rate": -1000,
+          "continuous_dividend_yield": 0.02
+        },
+        "conventions": {
+          "time_basis": "explicit_year_fraction",
+          "value_basis": "one_underlying_unit",
+          "monitoring": "not_applicable"
+        },
+        "method": {
+          "name": "closed_form"
+        }
+      },
+      "expected_status": "error",
+      "expected_error_code": "NUMERIC_RANGE_EXCEEDED",
+      "expected_prices": null
+    }
+  ]
+}
