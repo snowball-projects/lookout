@@ -38,11 +38,14 @@ owner-approved data-disposal decisions. No additional calculation was discovered
 in the reconciled local changes. Do not copy private financial records or their
 history into lookout or the independent history-free snowball engine.
 
+The final source-labelled draft and reproduction checkpoints were committed,
+pushed and verified in the independent private writing repository on September
+10, 2026. No original source history or historical account values are claimed
+to be archived. The owner is reviewing those notes before deciding on deletion.
+
 Before deleting any exact repository:
 
-1. Commit/push and verify the final source-labelled draft and its reproduction
-   checkpoints outside the retiring repositories. An uncommitted draft or
-   temporary review clone alone is insufficient.
+1. Keep that verified preservation record outside the retiring repositories.
 2. Refresh refs and relevant local state once more; review any intervening work.
 3. Obtain the owner's final repository-specific decision. Distinguish GitHub
    deletion from separately deleting local checkouts.
