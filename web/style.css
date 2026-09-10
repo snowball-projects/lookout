@@ -549,6 +549,7 @@ dialog a {
   .sidebar {
     padding: 0.9rem 1rem;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
     border-right: 0;
@@ -567,7 +568,9 @@ dialog a {
   }
   nav {
     display: flex;
-    margin-left: auto;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    width: 100%;
   }
   nav a {
     padding: 0.5rem 0.7rem;

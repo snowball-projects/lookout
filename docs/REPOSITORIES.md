@@ -10,7 +10,7 @@ transfers are complete. Final prototype deletions remain pending.
 
 | Repository                                | Responsibility                                                                                                                      | Status                                                                                                                                                                                                |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `snowball-projects/lookout`               | Website routes/components, shared input/report contracts, import normalization, UI integration tests, optional local import helpers | New canonical product repository. One version/deployment for the website. Current work includes a two-page static interface and executable data foundation, not six finished pages.                   |
+| `snowball-projects/lookout`               | Website routes/components, shared input/report contracts, import normalization, UI integration tests, optional local import helpers | New canonical product repository. One version/deployment for the website. The MVP includes six routes: working Holdings/Exposure and four clearly labelled planned pages.                   |
 | `snowball-projects/moneyprinter`          | Offline fund look-through engine, trace/coverage/overlap, CLI and exports                                                           | Keep name, history and package. No transfer required. Lookout is a consumer, not the engine's replacement.                                                                                            |
 | `snowball-projects/option-pricing-engine` | Reusable C++ models, numerical tests and native CLI                                                                                 | Transferred and renamed from `adelevski/OptionPricingEngine`. Public visibility, history, tags and releases preserved; existing C++ names retained.                                                   |
 | `snowball-projects/marketbro`             | Offline historical research, bar/result contracts, deterministic policy stages                                                      | Transferred from `adelevski/marketbro`. Private visibility, history, releases and PRs preserved. Website integration initially consumes suitable reports; personal execution remains outside lookout. |
@@ -35,8 +35,9 @@ components; retaining their repositories does not create three services.
 The eventual website can host a static interface. Lightweight browser-side
 calculation, a bounded C++ browser build, and offline-generated reports must be
 chosen per actual computation and verified against native reference fixtures.
-We have not yet chosen a frontend framework, promised all engines can run in a
-browser, or introduced a hosted account aggregation service.
+The interface uses browser-native HTML, CSS and JavaScript. It does not promise
+that all engines can run in a browser or introduce a hosted account aggregation
+service.
 
 Each engine retains its own version, tests, license, source documentation and
 release process. Lookout pins the versions/contracts it integrates and tests the

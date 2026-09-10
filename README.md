@@ -1,12 +1,10 @@
 # lookout
 
-lookout is snowball’s finance workspace. The first web interface covers Holdings
-and Exposure, with local file imports and a synthetic example.
-This is a private development preview, not the completed six-page dashboard or
-a production portfolio service. The product
-name, six-page grouping, repository destinations and initial operating model are
-owner-approved. Both engine transfers are complete; prototype retirement remains
-pending.
+lookout is snowball’s finance workspace. Its six-page MVP groups Holdings,
+Exposure and Allocation under Portfolio, and Markets, Derivatives and Strategies
+under Research. Holdings and Exposure support local file imports and a synthetic
+example; the remaining four pages are explicitly planned, without calculations.
+Engine transfers are complete; prototype retirement is tracked separately.
 
 The workspace validates a source-attributed holdings/quote bundle,
 keeps missing valuations explicit, and converts fully valued holdings into the
@@ -76,17 +74,31 @@ imported report; the interface labels it as an imported calculation.
 
 `web/example.json` is generated from `examples/holdings.json` with the independently
 maintained engine. Regenerate it using the command above with the synthetic input
-when its engine reference changes. Allocation, Markets, Derivatives and Strategies
-remain planned; there are no empty public tabs for them.
+when its engine reference changes. Switching among the six pages preserves the
+loaded workspace. Planned pages are accessible without loading portfolio data.
 
-## Preview hosting
+## Hosting and operation
 
-`.openai/hosting.json` configures a private static Sites preview. GitHub remains
-the canonical source; Sites receives a deployment copy. Only `web/` is copied to
-`dist/` and published, so source documentation and local files are not web assets.
-The local preview binds only to 127.0.0.1. A later public catalog entry requires a
-verified usable public destination.
+The public deployment target is a Render Static Site defined in `render.yaml`:
+branch `main`, build `npm ci && npm test && npm run build`, publish `dist/`.
+No server process, credentials, database or paid compute instance is required.
+Deployment is not complete until the live destination has been verified.
+Only browser assets and the MIT license enter `dist/`; source documentation,
+local files and historical data are not deployment assets. GitHub remains the
+canonical source. `.openai/hosting.json` retains the earlier private Sites preview
+identity; it is not the public production deployment configuration.
 
-An optional WebMCP action switches between the same two portfolio views without
-returning portfolio contents. Its unit contract is checked; no browser with a
-supported live WebMCP context was available for end-to-end registry validation.
+Render serves the static files and processes hosting request metadata under its
+own policies. Imported file contents remain in browser memory and are not sent
+to the host. Static hosting is subject to the provider's bandwidth/build limits;
+no zero-cost-at-any-usage or zero-host-logging claim is made. See Render's
+[static site documentation](https://render.com/docs/static-sites).
+
+To revive or move the app, check out a release, run the checks above, and serve
+`dist/` on any HTTPS static host. Hash routes require no server rewrites. The
+local preview binds only to 127.0.0.1. Roll back by deploying a previously checked
+release. There are no scheduled updates, live data feeds or migration jobs.
+
+An optional WebMCP action switches between Holdings and Exposure without
+returning portfolio contents. Its unit contract is checked; live browser
+registry integration has not been verified.

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: lookout
+    runtime: static
+    branch: main
+    buildCommand: npm ci && npm test && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer

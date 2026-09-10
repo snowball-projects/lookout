@@ -45,7 +45,14 @@ test("import, navigation, trace, error recovery, export and clear use the real a
         elements.set("#" + id, element());
     },
   });
-  const nav = ["holdings", "exposure"].map((page) => ({
+  const nav = [
+    "holdings",
+    "exposure",
+    "allocation",
+    "markets",
+    "derivatives",
+    "strategies",
+  ].map((page) => ({
     ...element(),
     dataset: { page },
   }));
@@ -128,12 +135,38 @@ test("import, navigation, trace, error recovery, export and clear use the real a
     assert.match(content, /Unresolved value/);
     elements.get("subject:ticker:ACME").onclick();
     assert.match(content, /Paths through Example security/);
+    for (const page of ["allocation", "markets", "derivatives", "strategies"]) {
+      location.hash = "#" + page;
+      events.get("hashchange")();
+      assert.match(content, /Planned/);
+      assert.match(content, /Not available in this release/);
+      assert.equal(
+        elements.get("#crumb-group").textContent,
+        page === "allocation" ? "Portfolio" : "Research",
+      );
+      assert.equal(elements.get("#export").disabled, false);
+    }
+    location.hash = "#holdings";
+    events.get("hashchange")();
+    assert.match(
+      content,
+      /1,300\.00/,
+      "planned pages must preserve the imported workspace",
+    );
     elements.get("#info").onclick();
     assert.equal(elements.get("#about").open, true);
     elements.get("#clear").onclick();
     assert.match(content, /Import a lookout JSON/);
     assert.equal(elements.get("#export").disabled, true);
     assert.equal(elements.get("#dataset").textContent, "No file loaded");
+    location.hash = "#strategies";
+    events.get("hashchange")();
+    assert.match(
+      content,
+      /Planned/,
+      "planned pages are available without portfolio data",
+    );
+    assert.equal(elements.get("#export").disabled, true);
   } finally {
     URL.createObjectURL = originalURL;
     URL.revokeObjectURL = originalRevoke;

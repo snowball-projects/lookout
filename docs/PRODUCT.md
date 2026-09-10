@@ -1,9 +1,9 @@
 # Approved product decisions
 
 The owner approved these decisions on September 9–10, 2026. They describe the
-intended product. The current development interface implements Holdings and
-Exposure on top of the offline foundation; the six-page public dashboard is not
-yet complete.
+intended product. The MVP has all six routes: Holdings and Exposure work; Allocation, Markets,
+Derivatives and Strategies explicitly describe planned capabilities. The owner
+approved these four placeholder pages to keep the initial release bounded.
 
 ## Website and catalog
 
@@ -45,8 +45,9 @@ yet complete.
 ## Implementation and verification
 
 Design the shared contracts for all six pages, then build usable flows
-incrementally. Do not publish empty tabs or claim every proposed experiment is
-already implemented. Framework, internal module layout, adapters and numerical
+incrementally. The owner-approved MVP includes four clearly labelled planned
+pages without pretend results or inactive calculation controls. Do not claim
+every proposed experiment is already implemented. Framework, internal module layout, adapters and numerical
 libraries are implementation decisions, subject to measured correctness, size,
 performance and maintainability rather than additional owner naming decisions.
 

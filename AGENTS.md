@@ -7,8 +7,9 @@ specs/holdings.md, docs/PRODUCT.md and docs/REPOSITORIES.md before changing
 contracts, product behavior or migration.
 Read snowball's current principles before public/data/architecture decisions.
 
-This checkout provides a static Holdings/Exposure interface plus an offline data
-foundation. It is not the completed six-page product or a public launch. Do not imply that example values are real quotes, account data,
+This checkout provides six static routes and an offline data foundation. Holdings
+and Exposure work; the other four pages are owner-approved planned placeholders.
+Do not imply that all six calculators exist or that example values are real quotes, account data,
 validated forecasts or investment recommendations. Use only synthetic fixtures.
 Never add credentials, private holdings, telemetry or live execution by default.
 The initial product uses user-controlled imports, synthetic examples and

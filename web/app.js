@@ -164,19 +164,51 @@ function exposure() {
       render();
     };
 }
+const pages = {
+  holdings: { title: "Holdings", group: "Portfolio" },
+  exposure: { title: "Exposure", group: "Portfolio" },
+  allocation: {
+    title: "Allocation",
+    group: "Portfolio",
+    planned: "Compare portfolio weights, constraints and risk scenarios.",
+  },
+  markets: {
+    title: "Markets",
+    group: "Research",
+    planned: "Explore dated price history, volume and screening conditions.",
+  },
+  derivatives: {
+    title: "Derivatives",
+    group: "Research",
+    planned: "Explore option prices, sensitivities and model assumptions.",
+  },
+  strategies: {
+    title: "Strategies",
+    group: "Research",
+    planned:
+      "Inspect historical strategy reports, costs and evaluation assumptions.",
+  },
+};
 function render() {
-  page = location.hash === "#exposure" ? "exposure" : "holdings";
+  const route = location.hash.slice(1);
+  page = Object.hasOwn(pages, route) ? route : "holdings";
+  const view = pages[page];
   document.querySelectorAll("[data-page]").forEach((a) => {
     if (a.dataset.page === page) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
-  $("#crumb").textContent = page === "holdings" ? "Holdings" : "Exposure";
-  document.title = `${page === "holdings" ? "Holdings" : "Exposure"} · lookout`;
+  $("#crumb").textContent = view.title;
+  $("#crumb-group").textContent = view.group;
+  document.title = `${view.title} · lookout`;
   $("#export").disabled = !state;
   $("#clear").disabled = !state;
   $("#dataset").textContent = state
     ? `${example ? "Synthetic example" : filename} · ${state.workspace.valuation_as_of}`
     : "No file loaded";
+  if (view.planned) {
+    content.innerHTML = `<div class="page-head"><h1>${view.title}</h1><span class="tag">Planned</span></div><section class="empty"><p>${view.planned}</p><p class="muted">Not available in this release.</p></section>`;
+    return;
+  }
   if (!state) {
     content.innerHTML =
       '<div class="empty"><h1>Your portfolio, in view.</h1><p>Import a lookout JSON file or explore the synthetic example.</p><button id="empty-demo">Load example</button></div>';

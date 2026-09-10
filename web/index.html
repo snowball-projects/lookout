@@ -29,6 +29,19 @@
         <nav aria-label="Portfolio">
           <a href="#holdings" data-page="holdings">Holdings <span>01</span></a
           ><a href="#exposure" data-page="exposure">Exposure <span>02</span></a>
+          <a href="#allocation" data-page="allocation"
+            >Allocation <span>03</span></a
+          >
+        </nav>
+        <div class="group">Research</div>
+        <nav aria-label="Research">
+          <a href="#markets" data-page="markets">Markets <span>04</span></a>
+          <a href="#derivatives" data-page="derivatives"
+            >Derivatives <span>05</span></a
+          >
+          <a href="#strategies" data-page="strategies"
+            >Strategies <span>06</span></a
+          >
         </nav>
         <div class="sidebar-bottom">
           <a
@@ -42,7 +55,8 @@
       <div class="workspace">
         <header>
           <div class="breadcrumb">
-            Portfolio <span>/</span> <strong id="crumb">Holdings</strong>
+            <span id="crumb-group">Portfolio</span> <span>/</span>
+            <strong id="crumb">Holdings</strong>
           </div>
           <div class="actions">
             <span class="local-dot">On this device</span
@@ -88,8 +102,8 @@
         does not rerun the fund engine or authenticate a report's author.
       </p>
       <p>
-        This first working slice covers Holdings and Exposure. Allocation,
-        Markets, Derivatives and Strategies remain in development.
+        Holdings and Exposure are available. Allocation, Markets, Derivatives
+        and Strategies are planned pages without calculations in this release.
       </p>
       <details>
         <summary>Prepare an exposure report</summary>
@@ -113,7 +127,10 @@
           >Source ↗</a
         >
       </p>
-      <p class="muted">MIT software · source and data terms remain separate.</p>
+      <p class="muted">
+        <a href="./LICENSE">MIT software</a> · source and data terms remain
+        separate.
+      </p>
     </dialog>
     <script type="module" src="./app.js"></script>
   </body>
