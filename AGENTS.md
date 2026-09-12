@@ -34,8 +34,9 @@ for the static distribution. No frontend runtime dependencies are needed. Keep s
 future UI labels explicit about partial data and skipped checks.
 
 Repository transfers, public deployment and retirement must follow the owner
-review and gates in docs/REPOSITORIES.md. Do not delete the historical personal
-Moneyprinter repo or local data during routine consolidation. Keep source and
+review and gates in docs/REPOSITORIES.md. The historical personal Moneyprinter
+repository retirement and local cleanup are complete; preserve the retained
+code-only extraction and private archives during routine work. Keep source and
 data licenses distinct. The owner confirmed MIT as the canonical license for
 snowball-owned software; keep LICENSE, metadata and current documentation aligned.
 Preserve third-party licenses and copyright notices. Do not relicense datasets

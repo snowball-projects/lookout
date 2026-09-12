@@ -5,8 +5,9 @@ One finance website with Portfolio (Holdings, Exposure, Allocation) and Research
 (Markets, Derivatives, Strategies). The owner approved the repository destinations,
 single lookout catalog entry and import/local/offline operating model. Both engine
 transfers are complete. The ten personal predecessor repositories were deleted with owner approval
-on September 10, 2026, after preservation and final verification. Local checkouts
-remain.
+on September 10, 2026, after preservation and final verification. A separately
+authorized local cleanup on September 11 moved retained historical source into
+private preservation archives and removed the superseded checkout folders.
 
 ## Four maintained repositories
 
@@ -34,9 +35,10 @@ backend is required to use imported data and offline calculation reports.
 Moneyprinter, OptionPricingEngine and marketbro remain calculation/research
 components; retaining their repositories does not create three services.
 
-The eventual website can host a static interface. Lightweight browser-side
-calculation, a bounded C++ browser build, and offline-generated reports must be
-chosen per actual computation and verified against native reference fixtures.
+The website hosts a static interface with browser-side holdings valuation and
+imported offline exposure reports. Further browser-side calculation, a bounded
+C++ browser build, and offline-generated reports must be chosen per actual
+computation and verified against native reference fixtures.
 The interface uses browser-native HTML, CSS and JavaScript. It does not promise
 that all engines can run in a browser or introduce a hosted account aggregation
 service.
@@ -74,7 +76,9 @@ software and snowball-owned code; third-party code/data retain their terms.
 
 The owner reviewed the preserved notes and explicitly approved the exact ten
 GitHub deletions. Each succeeded and was verified absent on September 10, 2026.
-No local checkout was deleted.
+That GitHub retirement did not remove local checkouts. The subsequent
+owner-approved local cleanup preserved retained source in private archives before
+removing the old folders; the four canonical snowball repositories remain.
 
 The nine prototypes and their source-specific preservation results are listed in
 [PRESERVATION.md](PRESERVATION.md). Their useful ideas are retained as working
@@ -83,9 +87,11 @@ retirement does not require implementing all four planned pages first.
 
 The personal historical Moneyprinter was the tenth deleted repository. Source/layout
 reconciliation is complete. The owner chose schema/workflow retention without
-keeping outdated snapshot values or creating a new recovery archive. The private
-migration record holds the details. The authorization covered GitHub deletion
-only; any local file removal requires a separate decision.
+keeping outdated snapshot values. The subsequent local cleanup retained a
+code-only source extraction and source-version index, while intentionally
+discarding old financial values and the original personal Git databases.
+The private migration and archive records hold the exact retention and
+owner-approved disposal details.
 
 `OptionPricingEngine` and `marketbro` were **transferred, not copied or deleted**.
 Their repository IDs, advertised refs, release/asset IDs and PR identities matched

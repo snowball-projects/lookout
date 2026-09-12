@@ -2,8 +2,10 @@
 
 Completed September 10, 2026. After reviewing the preserved notes, the owner
 approved deletion of the ten personal GitHub repositories below. Each deletion
-succeeded and was verified absent through GitHub. All local checkouts and the
-four canonical snowball repositories remain.
+succeeded and was verified absent through GitHub. The four canonical snowball
+repositories remain. Local cleanup was separately authorized and completed on
+September 11, 2026: retained historical source moved to private preservation
+archives, and superseded checkout folders were removed after verification.
 
 The review covered current functional source and documentation, reachable history
 topology and material removed features. The final pre-deletion remote check found no change
@@ -30,7 +32,7 @@ claim that the corresponding lookout page is implemented.
 | `adelevski/QuantConnect` `f4f460d` | All nine parameterized strategy/event exercises, offline NLP→timestamped replay, synthetic lifecycle/availability/expiry checks and teaching provenance limits. | Intentionally deferred catalogue. No profitability claim, corpus copying or hosted LEAN/NLP runtime. |
 | `adelevski/ML-for-Asset-Managers` `8cc37ec` | Seeded bounded correlation-eigenvalue experiment, Marchenko–Pastur support/density and singular-domain checks; book attribution. | Allocation diagnostic deferred; denoising/prediction were not implemented. Reimplement ideas rather than copy book code. |
 | `adelevski/TradingEngineServer` `1592804` | One configured shared worker, bounded awaited jobs and cooperative cancellation; no busy loop or duplicated service instance. | General engineering exercise retained. There was no trading algorithm/server to migrate. |
-| `adelevski/moneyprinter` `5c4cc94` | One-level exposure/provider normalization lessons and input/output schema design are recorded privately. Source/layout changes have been reconciled. | Recursive exposure uses the independent snowball engine. Schema/workflow retention was approved; the historical GitHub repository was deleted. Local files remain. |
+| `adelevski/moneyprinter` `5c4cc94` | One-level exposure/provider normalization lessons and input/output schema design are recorded privately. Source/layout changes have been reconciled. | Recursive exposure uses the independent snowball engine. The historical GitHub repository was deleted. A code-only extraction and source-version index are retained; old personal financial values and Git databases were intentionally discarded during the later authorized cleanup. |
 
 ## Local work and deletion gate
 
@@ -42,8 +44,12 @@ history into lookout or the independent history-free snowball engine.
 
 The final source-labelled draft and reproduction checkpoints were committed,
 pushed and verified in the independent private writing repository on September
-10, 2026. No original source history or historical account values are claimed
-to be archived. The owner reviewed and accepted these notes before approving the
+10, 2026. At that retirement gate, the notes did not claim a source-history or
+account-value archive. The later local cleanup preserved other historical source
+and Git directories in private archives, with personal moneyprinter limited to
+the code-only extraction described above. The private archive index records the
+exact retained contents and restore procedure. The owner reviewed and accepted
+the preservation notes before approving the
 exact ten deletions. Remote identities, heads and absence of open work were
 rechecked immediately before deletion. The private migration record retains the
 verification results.

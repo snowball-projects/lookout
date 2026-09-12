@@ -25,9 +25,9 @@ currency. No missing price is replaced with zero or one. Moneyprinter remains
 responsible for fund snapshot validation and recursive exposure calculations.
 
 See [product decisions](docs/PRODUCT.md), [repository plan](docs/REPOSITORIES.md)
-and [holdings contract](specs/holdings.md). This reference implementation is
-stdlib Python to verify the data boundary before choosing a browser adapter.
-It does not commit the frontend to Python, a server, or a new service.
+and [holdings contract](specs/holdings.md). The stdlib Python reference verifies
+the data boundary; the static browser implementation is checked against it.
+The public interface requires no Python runtime, server, or new service.
 
 Integration check against an independent Moneyprinter checkout:
 
@@ -105,3 +105,5 @@ release. There are no scheduled updates, live data feeds or migration jobs.
 An optional WebMCP action switches between Holdings and Exposure without
 returning portfolio contents. Its unit contract is checked; live browser
 registry integration has not been verified.
+
+[Operations](https://snowball-projects.github.io/operations/#lookout)
